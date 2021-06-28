@@ -44,11 +44,11 @@ class AppliesController < ApplicationController
   def change_status
     @apply = Apply.find(params[:id])
     a = ["Ready to apply", "Applied", "Ongoing process", "Waiting for answer"]
-    if a.find(@apply.status) == a[0]
+    if a.index(@apply.status) == 0
       @apply.status = a[1]
-    elsif a.find(@apply.status) == a[1]
+    elsif a.index(@apply.status) == 1
       @apply.status = a[2]
-    elsif a.find(@apply.status) == a[2]
+    elsif a.index(@apply.status) == 2
       @apply.status = a[3]
     else
       @apply.status = a[2]
