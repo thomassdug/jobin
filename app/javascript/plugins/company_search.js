@@ -7,7 +7,6 @@ export const getAuthenticityToken = () => {
 
 
 const companysearch = (event, type) => {
-  if (document.getElementById("calendarid")) {
     if (event) {
       fetch(`https://autocomplete.clearbit.com/v1/companies/suggest?query=:${type}`)
         .then(response => response.json())
@@ -38,9 +37,7 @@ const companysearch = (event, type) => {
         });
     };
   }
-    }
   
-
 
   const input = document.querySelector("#companysearch");
   if (input){

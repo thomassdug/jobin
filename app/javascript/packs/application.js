@@ -40,7 +40,7 @@ import { submit_review } from "../plugins/submit_review"
 import { itw_selector } from "../plugins/itw_selector"
 import { growDiv } from "../plugins/itw_selector"
 
-import { displayDateOnCalendar, renderCalendar }from "../plugins/calender"
+import { displayDateOnCalendar, renderCalendar ,popup}from "../plugins/calender"
 
 import { votes } from "../plugins/votes"
 import { Hideapply } from  "../plugins/hide"
@@ -51,9 +51,9 @@ import { schoolsearch } from "../plugins/school_search";
 document.addEventListener('turbolinks:load', () => {
  //  Call your functions here, e.g:  
  initSelect2();
-  if (document.getElementById('banner-typed-text')) {
+  
     loadDynamicBannerText();
-  }
+  
   initFlatpickr_date();
   initFlatpickr_hour();
   initSelect2();
@@ -61,10 +61,11 @@ document.addEventListener('turbolinks:load', () => {
   displaycategory();
   // add_interview();
 
-  if (document.getElementById("calendarid")){
-    renderCalendar();
+  if (document.getElementById("calendarid")) {
+  renderCalendar();
     companysearch();
     displayDateOnCalendar();
+    popup();
   }
 
   initAutocomplete1();

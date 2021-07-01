@@ -26,7 +26,19 @@
         </div>
         <div class="days"></div>
       </div>
+       <% @apply.interviews.each do |interview| %>
+    <div id="myModal<%=interview.id  %>" class="modal">
+  <div class="modal-content">
+    <span class="close">&times;</span>
+    <p><%= interview.date.strftime("%Y-%-m-%-d") %></p>
+    <p><%= interview.start_time.strftime("%-H") %></p>
+    <p><%= interview.end_time.strftime("%-H") %></p>
+  </div>
+  </div>
+   <% end %>
     </div>
+   
+ 
   <div class="application-details">
     <div class="text-center d-flex">
       <div>
@@ -43,8 +55,8 @@
           <div class="d-flex">
             <%if @apply.interviews.count > 0  %>
             <% @apply.interviews.each do |interview| %>
-              <span class="btn interview_button itwselector" data-description=<%= interview.notes%> 
-              data-itwid=<%=interview.id%> data-applyid=<%=@apply.id%> 
+              <span class="btn interview_button itwselector" data-description="<%= interview.notes%>"
+              data-itwid="<%=interview.id%>" data-applyid="<%=@apply.id%>" 
               data-date="<%= interview.date.strftime("%Y-%-m-%-d")%>" data-start_time=<%= interview.start_time.strftime("%I:%M %p") %> data-end_time=<%= interview.end_time.strftime("%I:%M %p")%>><%= interview.step %></span>
             <% end %>
             <%else %>
